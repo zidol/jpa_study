@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef91b8f1-1898-48a1-a165-e6393ed09d54" name="Default Changelist" comment="" />
+    <list default="true" id="ef91b8f1-1898-48a1-a165-e6393ed09d54" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +19,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -42,53 +48,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="ex1_hello_jpa" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="ex1_hello_jpa" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,26 +88,30 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="653" y="219" key="#com.intellij.ide.util.MemberChooser/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357111545" />
-    <state width="1638" height="261" key="GridCell.Tab.0.bottom" timestamp="1600357441081">
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom" timestamp="1600359016990">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.bottom/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357441081" />
-    <state width="1638" height="261" key="GridCell.Tab.0.center" timestamp="1600357441080">
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016990" />
+    <state width="1638" height="261" key="GridCell.Tab.0.center" timestamp="1600359016989">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.center/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357441080" />
-    <state width="1638" height="261" key="GridCell.Tab.0.left" timestamp="1600357441079">
+    <state width="1638" height="261" key="GridCell.Tab.0.center/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016989" />
+    <state width="1638" height="261" key="GridCell.Tab.0.left" timestamp="1600359016988">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.left/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357441079" />
-    <state width="1638" height="261" key="GridCell.Tab.0.right" timestamp="1600357441080">
+    <state width="1638" height="261" key="GridCell.Tab.0.left/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016988" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right" timestamp="1600359016989">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.right/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357441080" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016989" />
     <state x="341" y="175" key="SettingsEditor" timestamp="1600357293251">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="341" y="175" key="SettingsEditor/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357293251" />
+    <state x="500" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1600358093865">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="500" y="369" key="com.intellij.ide.util.TipDialog/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600358093865" />
     <state x="411" y="245" width="858" height="582" key="find.popup" timestamp="1600355971175">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -159,7 +122,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java</url>
-          <line>8</line>
+          <line>9</line>
           <properties class="hellojpa.JpaMain" method="main">
             <option name="EMULATED" value="true" />
           </properties>
