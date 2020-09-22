@@ -4,6 +4,8 @@
     <list default="true" id="ef91b8f1-1898-48a1-a165-e6393ed09d54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,45 +86,57 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="653" y="219" key="#com.intellij.ide.util.MemberChooser" timestamp="1600357111545">
+    <state x="653" y="219" key="#com.intellij.ide.util.MemberChooser" timestamp="1600787024835">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="653" y="219" key="#com.intellij.ide.util.MemberChooser/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357111545" />
-    <state width="1638" height="261" key="GridCell.Tab.0.bottom" timestamp="1600359016990">
+    <state x="653" y="219" key="#com.intellij.ide.util.MemberChooser/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600787024835" />
+    <state x="442" y="125" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1600786727190">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.bottom/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016990" />
-    <state width="1638" height="261" key="GridCell.Tab.0.center" timestamp="1600359016989">
+    <state x="442" y="125" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600786727190" />
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom" timestamp="1600789180236">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.center/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016989" />
-    <state width="1638" height="261" key="GridCell.Tab.0.left" timestamp="1600359016988">
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600789180236" />
+    <state width="1638" height="261" key="GridCell.Tab.0.bottom/0.23.1680.1027/1680.-45.1920.1057@0.23.1680.1027" timestamp="1600389208839" />
+    <state width="1638" height="261" key="GridCell.Tab.0.center" timestamp="1600789180235">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.left/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016988" />
-    <state width="1638" height="261" key="GridCell.Tab.0.right" timestamp="1600359016989">
+    <state width="1638" height="261" key="GridCell.Tab.0.center/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600789180235" />
+    <state width="1638" height="261" key="GridCell.Tab.0.center/0.23.1680.1027/1680.-45.1920.1057@0.23.1680.1027" timestamp="1600389208839" />
+    <state width="1638" height="261" key="GridCell.Tab.0.left" timestamp="1600789180234">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1638" height="261" key="GridCell.Tab.0.right/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600359016989" />
+    <state width="1638" height="261" key="GridCell.Tab.0.left/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600789180234" />
+    <state width="1638" height="261" key="GridCell.Tab.0.left/0.23.1680.1027/1680.-45.1920.1057@0.23.1680.1027" timestamp="1600389208839" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right" timestamp="1600789180235">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1638" height="261" key="GridCell.Tab.0.right/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600789180235" />
+    <state width="1638" height="261" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-45.1920.1057@0.23.1680.1027" timestamp="1600389208839" />
     <state x="341" y="175" key="SettingsEditor" timestamp="1600357293251">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="341" y="175" key="SettingsEditor/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600357293251" />
-    <state x="500" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1600358093865">
+    <state x="375" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1600786088141">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="500" y="369" key="com.intellij.ide.util.TipDialog/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600358093865" />
+    <state x="375" y="369" key="com.intellij.ide.util.TipDialog/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600786088141" />
     <state x="411" y="245" width="858" height="582" key="find.popup" timestamp="1600355971175">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="411" y="245" width="858" height="582" key="find.popup/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600355971175" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1600787112406">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/-1366.23.1366.1001/0.23.1680.1027@0.23.1680.1027" timestamp="1600787112406" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java</url>
-          <line>9</line>
+          <line>10</line>
           <properties class="hellojpa.JpaMain" method="main">
             <option name="EMULATED" value="true" />
           </properties>
