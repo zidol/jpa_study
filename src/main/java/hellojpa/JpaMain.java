@@ -68,13 +68,20 @@ public class JpaMain {
 //            System.out.println("==============");
 
             //영속
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAAA");// 변경감지
+//            Member member = em.find(Member.class, 150L);
+//            member.setName("AAAAA");// 변경감지
+//
+////            em.detach(member);  //준영속 상태 -> update 하지 않음 영속성 context에서 제거
+//            em.clear(); // 영속 통으로 날림
+//            Member member2 = em.find(Member.class, 150L);       //쿼리 2번나감
+//            System.out.println("==============");
 
-//            em.detach(member);  //준영속 상태 -> update 하지 않음 영속성 context에서 제거
-            em.clear(); // 영속 통으로 날림
-            Member member2 = em.find(Member.class, 150L);       //쿼리 2번나감
-            System.out.println("==============");
+            Member member = new Member();
+            member.setId(1L);
+            member.setUsername("AA");
+            member.setAge(10);
+            member.setRoleType(RoleType.ADMIN);
+            em.persist(member);
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
