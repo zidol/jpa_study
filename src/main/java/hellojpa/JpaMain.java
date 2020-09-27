@@ -77,11 +77,13 @@ public class JpaMain {
 //            System.out.println("==============");
 
             Member member = new Member();
-            member.setId(1L);
             member.setUsername("AA");
             member.setAge(10);
             member.setRoleType(RoleType.ADMIN);
+            System.out.println("==============");
             em.persist(member);
+            System.out.println("member.getId() = " + member.getId());
+            System.out.println("==============");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

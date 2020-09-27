@@ -4,9 +4,15 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.IdentityHashMap;
 
 @Entity
 //@Table(name = "MBR") // 테이블 이름 지정
+//@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")  //시퀀스 테이블마다 정해줄 때
+@SequenceGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
+        initialValue = 1, allocationSize = 50)
 public class Member {
 
 //    @Id
@@ -16,8 +22,14 @@ public class Member {
 //    private String name;
 //    private int age;
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
+
     @Column(name = "name", nullable = false)          //디비 컬럼은 name
     private String username;
 
