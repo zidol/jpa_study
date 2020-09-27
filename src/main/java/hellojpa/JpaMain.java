@@ -76,14 +76,29 @@ public class JpaMain {
 //            Member member2 = em.find(Member.class, 150L);       //쿼리 2번나감
 //            System.out.println("==============");
 
+//            Member member = new Member();
+//            System.out.println("==============");
+//            em.persist(member);
+//            System.out.println("member.getId() = " + member.getId());
+//            System.out.println("==============");
+
+            //jpa 연관관계 저장코드
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
             Member member = new Member();
-            member.setUsername("AA");
-            member.setAge(10);
-            member.setRoleType(RoleType.ADMIN);
-            System.out.println("==============");
+            member.setName("member1");
+            member.setTeam(team);
             em.persist(member);
-            System.out.println("member.getId() = " + member.getId());
-            System.out.println("==============");
+
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member.getId());
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam.getName() = " + findTeam.getName());
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
