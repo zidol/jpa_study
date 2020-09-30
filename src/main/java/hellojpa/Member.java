@@ -119,6 +119,8 @@ package hellojpa;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 @Entity
@@ -139,6 +141,14 @@ public class Member {
     @OneToOne
     @JoinColumn(name = "LOCKER_ID")
     private Locker locker;
+
+    /*
+    @ManyToMany                         // 다대다 조인 테이블 설정
+    @JoinTable(name = "MEMBER_PRODUCT")// 실무에서 사용하기 힘듬(연결만 하지 않고 다른 추가 데이터가 있을수 있기 때문)
+    private List<Product> products = new ArrayList<Product>();
+    */
+    @OneToMany(mappedBy = "member") //다대다 매핑 테이블이랑 연관관계
+    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
 
     public Long getId() {
         return id;
@@ -170,13 +180,4 @@ public class Member {
 //        team.getMembers().add(this);
 //    }
 
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", team=" + team.toString() +
-                '}';
-    }
 }
