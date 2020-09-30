@@ -83,27 +83,53 @@ public class JpaMain {
 //            System.out.println("==============");
 
             //jpa 연관관계 저장코드
+//            Team team = new Team();
+//            team.setName("TeamA");
+//            em.persist(team);
+//
+//            Member member = new Member();
+//            member.setName("member1");
+//            member.setTeam(team);
+//            em.persist(member);
+//
+//            em.flush();
+//            em.clear();
+//
+//            Member findMember = em.find(Member.class, member.getId());
+////            Team findTeam = findMember.getTeam();
+////            System.out.println("findTeam.getName() = " + findTeam.getName());
+//            List<Member> members = findMember.getTeam().getMembers();
+//
+//            for (Member member1 : members) {
+//                System.out.println("member1.getName() = " + member1.getName());
+//            }
+
+            //저장
             Team team = new Team();
             team.setName("TeamA");
+//            team.getMembers().add(member);    //연관관계 주인에게만 값을 세팅해야함
             em.persist(team);
 
             Member member = new Member();
             member.setName("member1");
-            member.setTeam(team);
+//            member.changeTeam(team);           //연관 관계 주인에게 값 세팅
             em.persist(member);
 
+//            team.getMembers().add(member);  //양방향에선 모두 값 세팅
+
+            team.addMember(member);
+            
             em.flush();
             em.clear();
+            
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
 
-            Member findMember = em.find(Member.class, member.getId());
-//            Team findTeam = findMember.getTeam();
-//            System.out.println("findTeam.getName() = " + findTeam.getName());
-            List<Member> members = findMember.getTeam().getMembers();
-
-            for (Member member1 : members) {
-                System.out.println("member1.getName() = " + member1.getName());
+            System.out.println("=============");
+            for (Member m : members) {
+                System.out.println("m.getName() = " + findTeam);
             }
-
+            System.out.println("=============");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
