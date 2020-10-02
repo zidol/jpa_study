@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -130,21 +131,31 @@ public class JpaMain {
 //                System.out.println("m.getName() = " + findTeam);
 //            }
 //            System.out.println("=============");
-            Movie movie = new Movie();
-            movie.setDirector("aaaa");
-            movie.setActor("bbbb");
-            movie.setName("바람과함께사라지다");
-            movie.setPrice(10000);
-            em.persist(movie);
-
-            em.flush();
-            em.clear();
+//            Movie movie = new Movie();
+//            movie.setDirector("aaaa");
+//            movie.setActor("bbbb");
+//            movie.setName("바람과함께사라지다");
+//            movie.setPrice(10000);
+//            em.persist(movie);
+//
+//            em.flush();
+//            em.clear();
 
 //            Movie findMovie = em.find(Movie.class, movie.getId());
 //            System.out.println("findMovie = " + findMovie);
             // 구현 클래스마다테이블 전략  단점
-            Item item = em.find(Item.class, movie.getId());
-            System.out.println("item = " + item);
+//            Item item = em.find(Item.class, movie.getId());
+//            System.out.println("item = " + item);
+            //@MappedSuperClass ex
+            Member member = new Member();
+            member.setName("user1");
+            member.setCreatedBy("kim");
+            member.setCreatedDate(LocalDateTime.now());
+
+            em.persist(member);
+
+            em.flush();
+            em.clear();
 
             tx.commit();
         } catch (Exception e) {

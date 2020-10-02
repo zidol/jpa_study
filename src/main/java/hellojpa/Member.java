@@ -118,13 +118,16 @@ package hellojpa;
 //}
 
 
+import com.sun.xml.internal.rngom.parse.host.Base;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     private Long id;
