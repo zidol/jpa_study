@@ -137,21 +137,21 @@ public class Member extends BaseEntity {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "TEAM_ID")       //연관관계의 주인(진짜 매핑) : 연관관계 주인은 fk(왼래키)가 있는 객체, 다(many)가 있는곳(fk 있는곳)이 연관관계 주인
     private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
+//    @OneToOne
+//    @JoinColumn(name = "LOCKER_ID")
+//    private Locker locker;
 
     /*
     @ManyToMany                         // 다대다 조인 테이블 설정
     @JoinTable(name = "MEMBER_PRODUCT")// 실무에서 사용하기 힘듬(연결만 하지 않고 다른 추가 데이터가 있을수 있기 때문)
     private List<Product> products = new ArrayList<Product>();
     */
-    @OneToMany(mappedBy = "member") //다대다 매핑 테이블이랑 연관관계
-    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
+//    @OneToMany(mappedBy = "member") //다대다 매핑 테이블이랑 연관관계
+//    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
 
     public Long getId() {
         return id;

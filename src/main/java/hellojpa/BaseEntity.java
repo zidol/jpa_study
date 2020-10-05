@@ -2,6 +2,8 @@ package hellojpa;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.time.LocalDateTime;
 
 @MappedSuperclass   //공통적인 컬럼을 사용할 때(상속 매핑과는 다름), 상속관계 매핑x, Entity 매칭 x, 테이블 매핑 x
@@ -46,3 +48,4 @@ public abstract class BaseEntity {
         this.lastModifiedDate = lastModifiedDate;
     }
 }
+
