@@ -137,7 +137,8 @@ public class Member extends BaseEntity {
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
-    @ManyToOne
+//    @ManyToOne(fetch = FetchType.LAZY)  //프록시 객체 조회(지연로딩)
+    @ManyToOne(fetch = FetchType.EAGER)  //즉시로딩
     @JoinColumn(name = "TEAM_ID")       //연관관계의 주인(진짜 매핑) : 연관관계 주인은 fk(왼래키)가 있는 객체, 다(many)가 있는곳(fk 있는곳)이 연관관계 주인
     private Team team;
 

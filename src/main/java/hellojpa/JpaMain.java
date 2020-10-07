@@ -220,22 +220,78 @@ public class JpaMain {
 //            System.out.println("findMember.getClass() = " + findMember.getClass()); //프록시에사 가져옴
 //            System.out.println("a == a : " + (refMember == findMember));    // true
 
-            Member member1 = new Member();
-            member1.setName("memger1");
-            em.persist(member1);
-
-            em.flush();
-            em.clear();
-
-            Member refMember = em.getReference(  Member.class, member1.getId());
-            System.out.println("refMember.getClass() = " + refMember.getClass()); //porxy
+//            Member member1 = new Member();
+//            member1.setName("memger1");
+//            em.persist(member1);
+//
+//            em.flush();
+//            em.clear();
+//
+//            Member refMember = em.getReference(  Member.class, member1.getId());
+//            System.out.println("refMember.getClass() = " + refMember.getClass()); //porxy
 
 //            em.detach(refMember);
 //            em.clear(); //예외 발생
 //            System.out.println("refMember.getName() = " + refMember.getName());
 //            refMember.getName();    //강제 초기화( JPA 표준은 강제 초기화 없음)
 //            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(refMember));
-            Hibernate.initialize(refMember);    //강제 초기화
+//            Hibernate.initialize(refMember);    //강제 초기화
+
+            // 지연 로딩, 즉시 로딩
+//            Team team = new Team();
+//            team.setName("teamA");
+//            em.persist(team);
+//
+//            Team teamB = new Team();
+//            team.setName("teamB");
+//            em.persist(teamB);
+//
+//            Member member1 = new Member();
+//            member1.setName("memger1");
+//            member1.setTeam(team);
+//            em.persist(member1);
+//
+//            Member member2 = new Member();
+//            member2.setName("memger2");
+//            member2.setTeam(teamB);
+//            em.persist(member2);
+//
+//            em.flush();
+//            em.clear();
+
+//            Member m = em.find(Member.class, member1.getId());
+
+//            System.out.println("m = " + m.getTeam().getClass());    //즉시 로딩에선 진짜 객체가 나옴
+//
+//            System.out.println("=========================");
+//            m.getTeam().getName();// 프록시 초기화(DB에서 team 가져옴, team의 객체에서 데이터를 꺼낼때 쿼리 발생)
+//            System.out.println("=========================");
+
+            //즉시로딩 N+1 예제
+//            List<Member> members = em.createQuery("select m from Member m", Member.class)   //Member에 Team이 EAGER로 되어 있는것을 보고 리스트에 담겨있는 member 하나하나
+//                    .getResultList();                                                               //Team을 조회하는 쿼리를 발생시킴
+
+
+            //Cascade 영속성 전이
+
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
+            em.persist(child1);
+            em.persist(child2);
+
+            em.flush();
+            em.clear();
+
+            Parent findParent = em.find(Parent.class, parent.getId());
+//            findParent.getChildList().remove(0);  //CascadeType.ALL 예제
+            em.remove(findParent);  //orphanRemoval 예제
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
