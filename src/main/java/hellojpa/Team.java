@@ -14,13 +14,13 @@ public class Team extends BaseEntity {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "team")   // member 객체의 team 변수명 과 맵핑되어 있음(개짜 매핑)
-    private List<Member> members = new ArrayList<Member>();
+//    @OneToMany(mappedBy = "team")   // member 객체의 team 변수명 과 맵핑되어 있음(개짜 매핑)
+//    private List<Member> members = new ArrayList<Member>();
 
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
-    }
+//    public void addMember(Member member) {
+////        member.setTeam(this);
+//        members.add(member);
+//    }
 
     public Long getId() {
         return id;
@@ -38,11 +38,11 @@ public class Team extends BaseEntity {
         this.name = name;
     }
 
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
-    }
+//    public List<Member> getMembers() {
+//        return members;
+//    }
+//
+//    public void setMembers(List<Member> members) {
+//        this.members = members;
+//    }
 }

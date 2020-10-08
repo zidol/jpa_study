@@ -126,21 +126,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 
-@Entity
-public class Member extends BaseEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Column(name = "USERNAME")
-    private String name;
+//@Entity
+//public class Member extends BaseEntity {
+//    @Id
+//    @GeneratedValue
+//    private Long id;
+//    @Column(name = "USERNAME")
+//    private String name;
 
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
 //    @ManyToOne(fetch = FetchType.LAZY)  //프록시 객체 조회(지연로딩)
-    @ManyToOne(fetch = FetchType.EAGER)  //즉시로딩
-    @JoinColumn(name = "TEAM_ID")       //연관관계의 주인(진짜 매핑) : 연관관계 주인은 fk(왼래키)가 있는 객체, 다(many)가 있는곳(fk 있는곳)이 연관관계 주인
-    private Team team;
+//    @ManyToOne(fetch = FetchType.EAGER)  //즉시로딩
+//    @JoinColumn(name = "TEAM_ID")       //연관관계의 주인(진짜 매핑) : 연관관계 주인은 fk(왼래키)가 있는 객체, 다(many)가 있는곳(fk 있는곳)이 연관관계 주인
+//    private Team team;
 
 //    @OneToOne
 //    @JoinColumn(name = "LOCKER_ID")
@@ -154,6 +154,45 @@ public class Member extends BaseEntity {
 //    @OneToMany(mappedBy = "member") //다대다 매핑 테이블이랑 연관관계
 //    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
 
+
+
+    //연관관계 편의 메소드
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
+//}
+
+
+@Entity
+public  class Member {
+    // 임배디드 타입 테이블 매핑
+
+    @Id
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+
+    @Column(name = "USERNAME")
+    private String userName;
+
+    //기간 period
+    @Embedded
+    private Period workPeriod;
+
+    //주소
+    @Embedded
+    private Address homeAddress;
+
+    //주소
+//    @Embedded   //homeAddress, workAddress 객체의 변수들이 같기때문에 오버라이드를 해야함
+//    @AttributeOverrides({
+//            @AttributeOverride(name = "city", column = @Column(name = "WORK_CITY")),
+//            @AttributeOverride(name = "street", column = @Column(name = "WORK_STREET")),
+//            @AttributeOverride(name = "zipcode", column = @Column(name = "WORK_ZIPCODE")),
+//    })
+//    private Address workAddress;
+
     public Long getId() {
         return id;
     }
@@ -162,26 +201,27 @@ public class Member extends BaseEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public Team getTeam() {
-        return team;
+    public Period getWorkPeriod() {
+        return workPeriod;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
     }
 
-    //연관관계 편의 메소드
-//    public void changeTeam(Team team) {
-//        this.team = team;
-//        team.getMembers().add(this);
-//    }
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
 
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
 }

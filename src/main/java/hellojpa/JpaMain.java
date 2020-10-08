@@ -273,26 +273,51 @@ public class JpaMain {
 
 
             //Cascade 영속성 전이
-
-            Child child1 = new Child();
-            Child child2 = new Child();
-
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
-
-            em.persist(parent);
-            em.persist(child1);
-            em.persist(child2);
-
-            em.flush();
-            em.clear();
-
-            Parent findParent = em.find(Parent.class, parent.getId());
+//            Child child1 = new Child();
+//            Child child2 = new Child();
+//
+//            Parent parent = new Parent();
+//            parent.addChild(child1);
+//            parent.addChild(child2);
+//
+//            em.persist(parent);
+//            em.persist(child1);
+//            em.persist(child2);
+//
+//            em.flush();
+//            em.clear();
+//
+//            Parent findParent = em.find(Parent.class, parent.getId());
 //            findParent.getChildList().remove(0);  //CascadeType.ALL 예제
-            em.remove(findParent);  //orphanRemoval 예제
+//            em.remove(findParent);  //orphanRemoval 예제
 
-            tx.commit();
+            //임베디트 타입 사용
+//            Member member = new Member();
+//            member.setUserName("hello");
+//            member.setHomeAddress(new Address("city", "street", "zipcode"));
+//            member.setWorkPeriod(new Period());
+//
+//            em.persist(member);
+
+            //값 타입과 불변의 객체
+            Address address = new Address("city", "street", "10000");
+
+            Member member = new Member();
+            member.setUserName("member1");
+            member.setHomeAddress(address);
+            em.persist(member);
+
+            Address copyAddress = new Address(address.getCity(), address.getStreet(), address.getZipcode());
+            Member member2 = new Member();
+            member2.setUserName("member2");
+            member2.setHomeAddress(copyAddress);
+            em.persist(member2);
+
+            //값 타입의 실제 인스턴스인 값을 공유하는 것은 위험
+            //대신 값(인스턴스)를 복사해서 사용
+            member.getHomeAddress().setCity("newCity");     //member, member2 모두 city가 바뀜
+
+           tx.commit();
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
