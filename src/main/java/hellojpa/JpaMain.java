@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -302,22 +303,68 @@ public class JpaMain {
             //값 타입과 불변의 객체
             Address address = new Address("city", "street", "10000");
 
-            Member member = new Member();
-            member.setUserName("member1");
-            member.setHomeAddress(address);
-            em.persist(member);
-
-            Address copyAddress = new Address(address.getCity(), address.getStreet(), address.getZipcode());
-            Member member2 = new Member();
-            member2.setUserName("member2");
-            member2.setHomeAddress(copyAddress);
-            em.persist(member2);
+//            Member member = new Member();
+//            member.setUserName("member1");
+//            member.setHomeAddress(address);
+//            em.persist(member);
+//
+//            Address copyAddress = new Address(address.getCity(), address.getStreet(), address.getZipcode());
+//            Member member2 = new Member();
+//            member2.setUserName("member2");
+//            member2.setHomeAddress(copyAddress);
+//            em.persist(member2);
 
             //값 타입의 실제 인스턴스인 값을 공유하는 것은 위험
             //대신 값(인스턴스)를 복사해서 사용
-            member.getHomeAddress().setCity("newCity");     //member, member2 모두 city가 바뀜
+//            member.getHomeAddress().setCity("newCity");     //member, member2 모두 city가 바뀜
 
-           tx.commit();
+            //값 타입 컬렉션 사용 예제
+            Member member = new Member();
+            member.setUserName("member1");
+            member.setHomeAddress(new Address("homeCity", "street", "10000"));
+
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
+
+            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
+            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
+
+            em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            //값 타입 컬렉션은 지연로딩
+            System.out.println("============== START ================");
+            Member findMember = em.find(Member.class, member.getId());
+
+            //값 타입 커렉션 조회
+//            List<Address> addressHistory = findMember.getAddressHistory();
+//            for (Address address1 : addressHistory) {
+//                System.out.println("address1.getCity() = " + address1.getCity());
+//            }
+//            Set<String> favoriteFoods = findMember.getFavoriteFoods();
+//            for (String favoriteFood : favoriteFoods) {
+//                System.out.println("favoriteFood = " + favoriteFood);
+//            }
+
+            //값 타입  수정
+            //homeCity -> newcity
+//            findMember.getHomeAddress().setCity("newCity");   x(잘못됨, 값타입에선..)
+//            Address a = findMember.getHomeAddress();
+//            findMember.setHomeAddress(new Address("newCity", a.getStreet(), a.getZipcode())); //값 타입은 새로운 객체를 만들어서 통으로 바꿔야함
+
+            //값 타입 컬렉션 수정
+//            //치킨 -> 한식
+//            findMember.getFavoriteFoods().remove("치킨");
+//            findMember.getFavoriteFoods().add("한식");
+
+            //주소 변경
+//            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));  // equals  완벽히 재구현 해줘야함
+//            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
+
+            tx.commit();
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
