@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -301,7 +304,7 @@ public class JpaMain {
 //            em.persist(member);
 
             //값 타입과 불변의 객체
-            Address address = new Address("city", "street", "10000");
+//            Address address = new Address("city", "street", "10000");
 
 //            Member member = new Member();
 //            member.setUserName("member1");
@@ -319,25 +322,25 @@ public class JpaMain {
 //            member.getHomeAddress().setCity("newCity");     //member, member2 모두 city가 바뀜
 
             //값 타입 컬렉션 사용 예제
-            Member member = new Member();
-            member.setUserName("member1");
-            member.setHomeAddress(new Address("homeCity", "street", "10000"));
-
-            member.getFavoriteFoods().add("치킨");
-            member.getFavoriteFoods().add("족발");
-            member.getFavoriteFoods().add("피자");
-
-            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
-            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
-
-            em.persist(member);
-
-            em.flush();
-            em.clear();
+//            Member member = new Member();
+//            member.setUserName("member1");
+//            member.setHomeAddress(new Address("homeCity", "street", "10000"));
+//
+//            member.getFavoriteFoods().add("치킨");
+//            member.getFavoriteFoods().add("족발");
+//            member.getFavoriteFoods().add("피자");
+//
+//            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
+//            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
+//
+//            em.persist(member);
+//
+//            em.flush();
+//            em.clear();
 
             //값 타입 컬렉션은 지연로딩
-            System.out.println("============== START ================");
-            Member findMember = em.find(Member.class, member.getId());
+//            System.out.println("============== START ================");
+//            Member findMember = em.find(Member.class, member.getId());
 
             //값 타입 커렉션 조회
 //            List<Address> addressHistory = findMember.getAddressHistory();
@@ -363,6 +366,40 @@ public class JpaMain {
             //주소 변경
 //            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));  // equals  완벽히 재구현 해줘야함
 //            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
+
+            //JPQL
+//            List<Member> resultList = em.createQuery(
+//                    "select m From Member m where m.userName like '%kim%'",
+//                    Member.class
+//            ).getResultList();
+//            for (Member member : resultList) {
+//                System.out.println("member = " + member);
+//            }
+            //Criteria 사용 준비
+//            CriteriaBuilder cb = em.getCriteriaBuilder();
+//            CriteriaQuery<Member> query = cb.createQuery(Member.class);
+//
+//            Root<Member> m = query.from(Member.class);
+//
+//            CriteriaQuery<Member> cq = query.select(m);
+
+            //동적 쿼리 예
+//            String username = "aaaa";
+//            if (username != null) {
+//                cq.where(cb.equal(m.get("userName"), "kim"));
+//            }
+//
+//            List<Member> resultList = em.createQuery(cq).getResultList();
+            Member member = new Member();
+            member.setUserName("member1");
+            em.persist(member);
+
+            List<Member> resultList = em.createNativeQuery("select MEMBER_ID, city, street, zipcode, USERNAME from Member", Member.class).getResultList();
+
+            for (Member member1 : resultList) {
+                System.out.println("member = " + member1);
+            }
+
 
             tx.commit();
         } catch (Exception e) {
